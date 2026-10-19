@@ -77,18 +77,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
   background: var(--card);
 }
 
-.logo {
-  display: block;
-  font-family: "CommonGround";
-  font-size: 120px;
-  line-height: 1;
-  color: inherit;
-  text-decoration: none;
-  /* the symbols sit in wide boxes; pull them together and line up with the title */
-  letter-spacing: -0.3em;
-  margin-left: -0.26em;
-}
-
 .title {
   margin: 8px 0 16px;
   font-size: clamp(48px, 5.4vw, 76px);
@@ -348,7 +336,6 @@ dialog::backdrop { background: rgb(0 0 0 / 0.4); }
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; gap: 0; }
   .side { position: static; max-height: none; padding-bottom: 8px; }
-  .logo { font-size: 84px; }
   .cards { grid-template-columns: 1fr 1fr; }
   main { padding-top: 24px; }
 }
