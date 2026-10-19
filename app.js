@@ -66,7 +66,8 @@ const views = ["dictionary", "keyboard", "about"];
 
 function showView() {
   const name = views.includes(location.hash.slice(1)) ? location.hash.slice(1) : "dictionary";
-  for (const v of views) document.getElementById(v).hidden = v !== name;
+  // the sections are "view-…" rather than the bare hash, so the browser doesn't also scroll to them
+  for (const v of views) document.getElementById("view-" + v).hidden = v !== name;
   for (const a of document.querySelectorAll(".tabs a")) {
     if (a.dataset.tab === name) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
