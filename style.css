@@ -6,11 +6,11 @@
 }
 
 :root {
-  --paper: #f6f4ef;
+  --paper: #ffffff;
   --card: #ffffff;
   --ink: #141414;
   --muted: #77746d;
-  --line: #e2ded4;
+  --line: #e4e4e4;
   --accent: #141414;
   --radius: 14px;
   --ui: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
