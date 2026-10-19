@@ -34,7 +34,7 @@ window.LANGS = {
     kb_palette: "Or tap a symbol",
     kb_note: "Words without a symbol stay as letters. Markers go in brackets, like [past].",
     download_font: "Download the font",
-    about_body: "CommonGround is a typeface of picture-words. Each symbol is built from a few simple strokes, so anyone can read it, whatever language they grew up with and however much schooling they had. Type a word in the font and it becomes its symbol; put a marker after it to change its meaning, like turning eat into eat [past].",
+    about_body: "CommonGround is a typeface designed for people across languages and cultural backgrounds to read and communicate in a more fundamental way. Instead of an alphabet, with its steep learning curve, its language is defined by the relationships between behaviors and intentions.",
     about_font: "Install the font, then type in any app: words become symbols automatically.",
   },
   zh: {
@@ -69,7 +69,7 @@ window.LANGS = {
     kb_palette: "或者点选符号",
     kb_note: "没有符号的词会保留原文。标记写在方括号里，例如 [过去]。",
     download_font: "下载字体",
-    about_body: "CommonGround 是一套“图画词”字体。每个符号只由几笔简单的线条构成，无论说什么语言、读过多少书，都能看懂。用这款字体输入一个英文词，它就会变成对应的符号；在后面加上标记可以改变意思，比如把“吃”变成“吃 [过去]”。",
+    about_body: "CommonGround 是一款为不同语言、不同文化背景的人设计的字体，让大家能以更根本的方式阅读和交流。它不依赖学习门槛较高的字母表，而是以行为与意图之间的关系来定义语言。",
     about_font: "安装字体后，在任何软件里打字，词语都会自动变成符号。",
   },
   es: {
@@ -104,7 +104,7 @@ window.LANGS = {
     kb_palette: "O toca un símbolo",
     kb_note: "Las palabras sin símbolo se quedan en letras. Las marcas van entre corchetes, como [pasado].",
     download_font: "Descargar la fuente",
-    about_body: "CommonGround es una tipografía de palabras-dibujo. Cada símbolo se hace con unos pocos trazos simples, para que cualquiera pueda leerlo, sea cual sea su idioma y su nivel de estudios. Escribe una palabra con la fuente y se convierte en su símbolo; añade una marca detrás para cambiar el sentido, como comer [pasado].",
+    about_body: "CommonGround es una tipografía pensada para que personas de distintos idiomas y culturas puedan leer y comunicarse de una forma más fundamental. En lugar de un alfabeto, que cuesta aprender, su lenguaje se define por la relación entre los comportamientos y las intenciones.",
     about_font: "Instala la fuente y escribe en cualquier programa: las palabras se vuelven símbolos solas.",
   },
   fr: {
@@ -139,7 +139,7 @@ window.LANGS = {
     kb_palette: "Ou touchez un symbole",
     kb_note: "Les mots sans symbole restent en lettres. Les marques vont entre crochets, comme [passé].",
     download_font: "Télécharger la police",
-    about_body: "CommonGround est une police de mots-images. Chaque symbole tient en quelques traits simples, pour que tout le monde puisse le lire, quelle que soit sa langue et quelles que soient ses études. Tapez un mot avec la police et il devient son symbole ; ajoutez une marque derrière pour en changer le sens, comme manger [passé].",
+    about_body: "CommonGround est une police conçue pour que des personnes de langues et de cultures différentes puissent lire et communiquer de façon plus fondamentale. Plutôt qu'un alphabet, long à apprendre, son langage repose sur les relations entre les comportements et les intentions.",
     about_font: "Installez la police puis écrivez dans n'importe quelle application : les mots deviennent des symboles tout seuls.",
   },
   ja: {
@@ -174,7 +174,7 @@ window.LANGS = {
     kb_palette: "または記号をタップ",
     kb_note: "記号のない言葉は文字のまま残ります。マーカーは [過去] のように角かっこで。",
     download_font: "フォントをダウンロード",
-    about_body: "CommonGround は「絵の言葉」の書体です。どの記号も数本のシンプルな線でできているので、母語や学歴に関係なく誰でも読めます。このフォントで英単語を打つとその記号に変わり、後ろにマーカーを付けると意味が変わります。例えば「食べる [過去]」。",
+    about_body: "CommonGround は、言語や文化的背景の異なる人々が、より根本的なかたちで読み、伝え合えるようにデザインされた書体です。習得に時間のかかるアルファベットではなく、行動と意図の関係によって言葉が成り立っています。",
     about_font: "フォントをインストールすれば、どのアプリでも打った言葉が自動で記号になります。",
   },
 };
