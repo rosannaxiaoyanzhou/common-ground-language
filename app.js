@@ -189,6 +189,10 @@ const noSpaces = ch => /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u
 
 // split text into runs of plain text and matched symbols, preferring the
 // longest phrase at each spot, and (for spaced scripts) whole words only
+// English always, plus the page language
+const silent = [...new Set([...(LANGS.en.silent || []), ...(LANGS[lang].silent || [])])];
+const afterSymbol = [...new Set([...(LANGS.en.attributive || []), ...(LANGS[lang].attributive || [])])];
+
 function convert(text) {
   const lower = text.toLowerCase();
   const src = lower.length === text.length ? lower : text;
@@ -205,12 +209,21 @@ function convert(text) {
       hit = { e, end };
       break;
     }
-    // a particle that only ties a modifier to a noun (我的爱 → 我 爱) is left out,
-    // but only straight after a symbol, so words like 目的 stay whole
+    // a particle that only ties a modifier to a noun (我的爱 → 我 爱), or a short
+    // "'m"/"'s" after a pronoun, is left out, but only straight after a symbol,
+    // so words like 目的 stay whole
     const particle = !hit && !plain && parts.length && typeof parts[parts.length - 1] !== "string" &&
-      (LANGS[lang].attributive || []).find(p => src.startsWith(p, i));
+      afterSymbol.find(p => src.startsWith(p, i) && !isLetter(text[i + p.length]));
     if (particle) {
       i += particle.length;
+      continue;
+    }
+    // words the language has no use for (am, is, are) go too, with the space after them
+    const quiet = !hit && !isLetter(text[i - 1]) &&
+      silent.find(w => src.startsWith(w, i) && !isLetter(text[i + w.length]));
+    if (quiet) {
+      i += quiet.length;
+      while (i < text.length && /[ \t]/.test(text[i])) i++;
       continue;
     }
     if (hit) {
@@ -289,7 +302,11 @@ function copy(text, button) {
 
 // draw the symbols onto a canvas, wrapping at spaces, and download a PNG
 async function saveImage() {
-  const text = outputText().trim();
+  // canvas can't switch the font's own word swaps off, so leftover letters get an
+  // invisible break between each one; otherwise "This" would draw as T + "his"
+  const text = convert(kbInput.value)
+    .map(p => typeof p === "string" ? [...p].join("\u200C") : p.entry.char)
+    .join("").trim();
   if (!text) return;
   const size = 72, pad = 64, maxWidth = 1400, lineHeight = size * 1.5;
   const font = `${size}px CommonGround, system-ui, sans-serif`;

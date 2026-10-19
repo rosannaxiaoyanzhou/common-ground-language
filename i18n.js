@@ -31,7 +31,12 @@ window.LANGS = {
     kb_copy: "Copy symbols",
     kb_image: "Save as image",
     kb_palette: "Or tap a symbol",
-    kb_note: "Words without a symbol stay as letters. Markers go in brackets, like [past].",
+    kb_note: "Words without a symbol stay as letters, and am, is and are are left out. Markers go in brackets, like [past].",
+    // linking verbs the symbol language does without ("I am happy" → me happy);
+    // English is always typeable, so these apply whatever the page language
+    silent: ["am", "is", "are"],
+    // their short forms after a pronoun (I'm, you're, she's)
+    attributive: ["'m", "’m", "'re", "’re", "'s", "’s"],
     download_font: "Download the font",
     about_body: "CommonGround is a typeface designed for people across languages and cultural backgrounds to read and communicate in a more fundamental way. Instead of an alphabet, with its steep learning curve, its language is defined by the relationships between behaviors and intentions.",
     about_font: "Install the font, then type in any app: words become symbols automatically.",

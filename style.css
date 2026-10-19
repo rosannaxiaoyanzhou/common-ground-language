@@ -238,8 +238,11 @@ main {
   line-height: 1.5;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  /* the keyboard already swapped every word it knows; leave the rest as letters */
+  /* the keyboard already swapped every word it knows; leave the rest as letters.
+     rlig is the font's always-on word swap; without this, "This" would show the
+     "his" symbol, since the font has no capitals to keep the word whole */
   font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "rlig" 0, "calt" 0;
 }
 
 .kb-output:empty::before {
