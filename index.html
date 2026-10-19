@@ -8,62 +8,71 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top">
-    <a class="brand" href="#dictionary">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span data-i18n="title">Common Ground</span>
-    </a>
-    <nav class="tabs">
-      <a href="#dictionary" data-tab="dictionary" data-i18n="nav_dictionary">Dictionary</a>
-      <a href="#keyboard" data-tab="keyboard" data-i18n="nav_keyboard">Keyboard</a>
-      <a href="#about" data-tab="about" data-i18n="nav_about">About</a>
-    </nav>
-    <label class="lang">
-      <span class="visually-hidden" data-i18n="language">Language</span>
-      <select id="lang"></select>
-    </label>
-  </header>
+  <div class="layout">
+    <!-- left column: name, what it is, and the way into each page;
+         the logo is "person heart person" in the font -->
+    <aside class="side">
+      <label class="lang">
+        <span class="visually-hidden" data-i18n="language">Language</span>
+        <select id="lang"></select>
+      </label>
+      <a class="logo" href="#dictionary" aria-hidden="true" tabindex="-1">&#xE11E;&#xE101;&#xE11E;</a>
+      <h1 class="title" data-i18n="title">Common Ground</h1>
+      <p class="intro" data-i18n="about_body"></p>
+      <p class="intro-font">
+        <span data-i18n="about_font"></span>
+        <a href="fonts/CommonGround.ttf" download data-i18n="download_font">Download the font</a>
+      </p>
+      <nav class="cards">
+        <a class="nav-card" href="#dictionary" data-tab="dictionary">
+          <span class="nav-icon nav-icon-dictionary" aria-hidden="true">&#xE12C;</span>
+          <span class="nav-text">
+            <strong data-i18n="nav_dictionary">Dictionary</strong>
+            <span data-i18n="nav_dictionary_desc"></span>
+          </span>
+        </a>
+        <a class="nav-card" href="#keyboard" data-tab="keyboard">
+          <span class="nav-icon nav-icon-keyboard" aria-hidden="true">&#xE02B;</span>
+          <span class="nav-text">
+            <strong data-i18n="nav_keyboard">Keyboard</strong>
+            <span data-i18n="nav_keyboard_desc"></span>
+          </span>
+        </a>
+      </nav>
+    </aside>
 
-  <main>
-    <!-- dictionary: every symbol, searchable in any language -->
-    <section id="view-dictionary" class="view">
-      <p class="tagline" data-i18n="tagline"></p>
-      <div class="toolbar">
-        <input id="search" type="search" autocomplete="off" data-i18n-placeholder="search">
-        <div class="filters" id="filters"></div>
-      </div>
-      <p class="count" id="count"></p>
-      <div class="grid" id="grid"></div>
-      <p class="none" id="none" data-i18n="none" hidden></p>
-    </section>
-
-    <!-- keyboard: type in your own language, read it back in symbols -->
-    <section id="view-keyboard" class="view" hidden>
-      <div class="kb">
-        <textarea id="kb-input" rows="4" spellcheck="false" data-i18n-placeholder="kb_placeholder"></textarea>
-        <div class="kb-output-wrap">
-          <div class="kb-output" id="kb-output" aria-live="polite"></div>
+    <main>
+      <!-- dictionary: every symbol, searchable in any language -->
+      <section id="view-dictionary" class="view">
+        <div class="toolbar">
+          <input id="search" type="search" autocomplete="off" data-i18n-placeholder="search">
+          <div class="filters" id="filters"></div>
         </div>
-        <div class="kb-actions">
-          <button type="button" id="kb-clear" data-i18n="kb_clear">Clear</button>
-          <button type="button" id="kb-copy" data-i18n="kb_copy">Copy symbols</button>
-          <button type="button" id="kb-image" data-i18n="kb_image">Save as image</button>
-        </div>
-        <p class="note" data-i18n="kb_note"></p>
-      </div>
-      <h2 class="palette-title" data-i18n="kb_palette">Or tap a symbol</h2>
-      <div class="palette" id="palette"></div>
-    </section>
+        <p class="count" id="count"></p>
+        <div class="grid" id="grid"></div>
+        <p class="none" id="none" data-i18n="none" hidden></p>
+      </section>
 
-    <section id="view-about" class="view" hidden>
-      <div class="about">
-        <h2 data-i18n="about_title"></h2>
-        <p data-i18n="about_body"></p>
-        <p data-i18n="about_font"></p>
-        <p><a class="button" href="fonts/CommonGround.ttf" download data-i18n="download_font">Download the font</a></p>
-      </div>
-    </section>
-  </main>
+      <!-- keyboard: type in your own language, read it back in symbols -->
+      <section id="view-keyboard" class="view" hidden>
+        <div class="kb">
+          <textarea id="kb-input" rows="4" spellcheck="false" data-i18n-placeholder="kb_placeholder"></textarea>
+          <div class="kb-output-wrap">
+            <div class="kb-output" id="kb-output" aria-live="polite"></div>
+          </div>
+          <div class="kb-actions">
+            <button type="button" id="kb-clear" data-i18n="kb_clear">Clear</button>
+            <button type="button" id="kb-copy" data-i18n="kb_copy">Copy symbols</button>
+            <button type="button" id="kb-image" data-i18n="kb_image">Save as image</button>
+          </div>
+          <p class="note" data-i18n="kb_note"></p>
+        </div>
+        <h2 class="palette-title" data-i18n="kb_palette">Or tap a symbol</h2>
+        <div class="palette" id="palette"></div>
+      </section>
+
+    </main>
+  </div>
 
   <dialog id="detail">
     <form method="dialog" class="detail">

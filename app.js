@@ -39,7 +39,7 @@ const meaning = (entry, l = lang) => (entry.meanings[l] && entry.meanings[l][0])
 function applyLanguage() {
   document.documentElement.lang = lang === "zh" ? "zh-Hans" : lang;
   document.title = t("title");
-  for (const el of document.querySelectorAll("[data-i18n]")) el.textContent = t(el.dataset.i18n);
+  for (const el of document.querySelectorAll("[data-i18n]")) el.textContent = t(el.dataset.i18n).replace("{n}", entries.length);
   for (const el of document.querySelectorAll("[data-i18n-placeholder]")) el.placeholder = t(el.dataset.i18nPlaceholder);
   for (const el of document.querySelectorAll("[data-i18n-aria-label]")) el.setAttribute("aria-label", t(el.dataset.i18nAriaLabel));
   buildLexicon();
@@ -62,19 +62,23 @@ langSelect.addEventListener("change", () => {
 
 // ---- views ----
 
-const views = ["dictionary", "keyboard", "about"];
+const views = ["dictionary", "keyboard"];
 
 function showView() {
   const name = views.includes(location.hash.slice(1)) ? location.hash.slice(1) : "dictionary";
   // the sections are "view-…" rather than the bare hash, so the browser doesn't also scroll to them
   for (const v of views) document.getElementById("view-" + v).hidden = v !== name;
-  for (const a of document.querySelectorAll(".tabs a")) {
+  for (const a of document.querySelectorAll(".nav-card")) {
     if (a.dataset.tab === name) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   }
   if (name === "keyboard") kbInput.focus({ preventScroll: true });
 }
-window.addEventListener("hashchange", showView);
+window.addEventListener("hashchange", () => {
+  showView();
+  // on narrow screens the page sits below the column, so bring it into view
+  if (matchMedia("(max-width: 900px)").matches) document.querySelector("main").scrollIntoView({ behavior: "smooth" });
+});
 
 // ---- dictionary ----
 

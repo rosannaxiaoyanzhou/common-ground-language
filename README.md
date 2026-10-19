@@ -21,7 +21,7 @@ Then visit http://localhost:8000. It works as-is on GitHub Pages.
 
 | Path | What it is |
 | --- | --- |
-| `index.html`, `style.css`, `app.js` | the site: dictionary, keyboard, about |
+| `index.html`, `style.css`, `app.js` | the site: an intro column, the dictionary and the keyboard |
 | `i18n.js` | interface text per language, and the browser-language pick |
 | `data/vocabulary.js` | what each symbol means in each language (edit this one by hand) |
 | `data/glyphs.js` | glyph names, codepoints and the English words that type them (generated) |
