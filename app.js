@@ -205,6 +205,14 @@ function convert(text) {
       hit = { e, end };
       break;
     }
+    // a particle that only ties a modifier to a noun (我的爱 → 我 爱) is left out,
+    // but only straight after a symbol, so words like 目的 stay whole
+    const particle = !hit && !plain && parts.length && typeof parts[parts.length - 1] !== "string" &&
+      (LANGS[lang].attributive || []).find(p => src.startsWith(p, i));
+    if (particle) {
+      i += particle.length;
+      continue;
+    }
     if (hit) {
       if (plain) parts.push(plain);
       plain = "";
