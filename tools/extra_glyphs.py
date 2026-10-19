@@ -89,12 +89,14 @@ def us():
     return arch() + [dot(500, 320, 30), dot(435, 205, 30), dot(565, 205, 30)]
 
 
-# name: (codepoint, drawing, the words that type it; the first is the one shown)
+# name: (codepoint, drawing, the words that type it; the first is the one shown).
+# Each pronoun is one word whatever its role, so "I", "me", "my" and "mine"
+# are all the same symbol.
 GLYPHS = {
-    "s.me": (0xE13E, me, ["me", "i"]),
-    "s.you": (0xE13F, you, ["you"]),
-    "s.she": (0xE140, she, ["she", "her"]),
-    "s.he": (0xE141, he, ["he", "him"]),
-    "s.us": (0xE142, us, ["us", "we", "they", "them"]),
+    "s.me": (0xE13E, me, ["me", "i", "my", "mine"]),
+    "s.you": (0xE13F, you, ["you", "your", "yours"]),
+    "s.she": (0xE140, she, ["she", "her", "hers"]),
+    "s.he": (0xE141, he, ["he", "him", "his"]),
+    "s.us": (0xE142, us, ["us", "we", "our", "ours", "they", "them", "their", "theirs"]),
 }
 WIDTH = 1000
