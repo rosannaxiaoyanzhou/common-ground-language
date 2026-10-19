@@ -16,6 +16,8 @@ from fontTools.feaLib.builder import addOpenTypeFeaturesFromString
 from fontTools.fontBuilder import FontBuilder
 from fontTools.pens.ttGlyphPen import TTGlyphPen
 
+import extra_glyphs
+
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "source" / "LoCoSVocabulary.glyphs"
 FAMILY = "CommonGround"
@@ -116,6 +118,15 @@ def main():
         info.append({"name": name, "unicode": int(g["unicode"]) if "unicode" in g else None,
                      "width": advances[name]})
 
+    # symbols drawn in tools/extra_glyphs.py, unless the source already has them
+    extra = {name: v for name, v in extra_glyphs.GLYPHS.items() if name not in outlines}
+    for name, (code, draw, _) in extra.items():
+        glyph_order.append(name)
+        advances[name] = extra_glyphs.WIDTH
+        outlines[name] = draw()
+        cmap[code] = name
+        info.append({"name": name, "unicode": code, "width": extra_glyphs.WIDTH})
+
     pen_glyphs = {}
     y_min, y_max = 0, 0
     for name in glyph_order:
@@ -175,6 +186,14 @@ def main():
     for f in src.get("features", []):
         fea.append(f"feature {f['tag']} {{\n{f['code']}\n}} {f['tag']};")
     fea_text = "\n".join(fea)
+    # their typing words go at the end of the WORDS lookup, as whole words like the rest
+    rules = []
+    for name, (_, _, typed_words) in extra.items():
+        for word in typed_words:
+            marked = " ".join(f"{ch}'" for ch in word)
+            rules += [f"ignore sub @LET {marked};", f"ignore sub {marked} @LET;", f"sub {marked} by {name};"]
+    if rules:
+        fea_text = fea_text.replace("} WORDS;", "\n".join(rules) + "\n} WORDS;", 1)
     (ROOT / "tools" / "features.fea").write_text(fea_text, encoding="utf-8")
     addOpenTypeFeaturesFromString(fb.font, fea_text)
 

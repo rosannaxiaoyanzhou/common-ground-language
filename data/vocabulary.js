@@ -152,6 +152,11 @@ s.after | 以后/之后 | después | après | 後で
 s.short | 短 | corto | court | 短い
 s.long | 长 | largo | long | 長い
 s.not | 不/没 | no | ne pas/non | ない
+s.me | 我 | yo/mí | je/moi | 私/わたし/僕
+s.you | 你/您 | tú/usted/ti | tu/toi/vous | あなた/君
+s.she | 她 | ella | elle | 彼女
+s.he | 他 | él | il/lui | 彼
+s.us | 我们/他们/她们/大家 | nosotros/nosotras/ellos/ellas | nous/ils/elles | 私たち/彼ら/皆さん
 m.past | 过去 | pasado | passé | 過去
 m.future | 将来 | futuro | futur | 未来
 m.intensity | 强烈 | intensidad | intensité | 強さ
