@@ -50,13 +50,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ---------- layout: a column on the left, the page on the right ---------- */
 
+/* the column stays against the left edge at any width; the page takes all
+   the space that's left, so wider windows fit more symbols per row */
 .layout {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) 1fr;
-  gap: clamp(24px, 4vw, 56px);
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 48px);
+  grid-template-columns: clamp(320px, 26vw, 420px) 1fr;
+  gap: clamp(24px, 4vw, 64px);
+  padding: 0 clamp(16px, 3vw, 48px);
 }
 
 .side {
