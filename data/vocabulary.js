@@ -4,8 +4,8 @@
 // shown in the dictionary, and all of them turn into the symbol on the keyboard.
 // English comes from the font itself (the words you type to get each symbol).
 // To add a language: add a column here, then its name to LANGS in i18n.js.
-window.LOCOS_VOCAB_COLUMNS = ["zh", "es", "fr", "ja"];
-window.LOCOS_VOCAB = `
+window.VOCAB_COLUMNS = ["zh", "es", "fr", "ja"];
+window.VOCAB = `
 w.happy | 开心/快乐/高兴 | feliz/contento | heureux/content | 嬉しい/楽しい
 w.sad | 难过/伤心 | triste | triste | 悲しい
 w.like | 喜欢 | gustar | aimer bien | 好き

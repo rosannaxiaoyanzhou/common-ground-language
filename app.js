@@ -1,4 +1,4 @@
-// LoCoS Vocabulary: a searchable dictionary of the font's symbols and a
+// Common Ground: a searchable dictionary of the font's symbols and a
 // keyboard that turns what you type, in your own language, into symbols.
 
 const CATEGORIES = ["w", "s", "m"]; // words, roots, markers (the glyph name prefix)
@@ -6,15 +6,15 @@ const CATEGORIES = ["w", "s", "m"]; // words, roots, markers (the glyph name pre
 // ---- data: one entry per symbol, with its meanings in every language ----
 
 const vocab = {};
-for (const line of LOCOS_VOCAB.trim().split("\n")) {
+for (const line of VOCAB.trim().split("\n")) {
   const [name, ...cols] = line.split("|").map(s => s.trim());
   vocab[name] = {};
-  LOCOS_VOCAB_COLUMNS.forEach((lang, i) => {
+  VOCAB_COLUMNS.forEach((lang, i) => {
     vocab[name][lang] = (cols[i] || "").split("/").map(s => s.trim()).filter(Boolean);
   });
 }
 
-const entries = LOCOS_GLYPHS
+const entries = GLYPHS
   .filter(g => g.typed.length && CATEGORIES.includes(g.name[0]))
   .map(g => {
     const isMarker = g.name[0] === "m";
@@ -289,7 +289,7 @@ async function saveImage() {
   const text = outputText().trim();
   if (!text) return;
   const size = 72, pad = 64, maxWidth = 1400, lineHeight = size * 1.5;
-  const font = `${size}px LoCoS, system-ui, sans-serif`;
+  const font = `${size}px CommonGround, system-ui, sans-serif`;
   await document.fonts.load(font, text);
   const ctx = document.createElement("canvas").getContext("2d");
   ctx.font = font;
@@ -324,7 +324,7 @@ async function saveImage() {
   canvas.toBlob(blob => {
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "locos.png";
+    a.download = "common-ground.png";
     a.click();
     URL.revokeObjectURL(a.href);
   });

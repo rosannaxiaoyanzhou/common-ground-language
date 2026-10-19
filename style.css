@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "LoCoS";
-  src: url("fonts/LoCoSVocabulary.woff") format("woff"),
-       url("fonts/LoCoSVocabulary.ttf") format("truetype");
+  font-family: "CommonGround";
+  src: url("fonts/CommonGround.woff") format("woff"),
+       url("fonts/CommonGround.ttf") format("truetype");
   font-display: block;
 }
 
@@ -76,7 +76,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* the "person" symbol from the font, as a logo */
 .brand-mark::before {
   content: "\E11E";
-  font-family: "LoCoS";
+  font-family: "CommonGround";
   font-size: 30px;
   line-height: 1;
 }
@@ -184,7 +184,7 @@ main {
 }
 
 .glyph {
-  font-family: "LoCoS";
+  font-family: "CommonGround";
   font-size: 56px;
   line-height: 1.25;
   min-height: 1.25em;
@@ -220,7 +220,7 @@ main {
 }
 
 .kb-output {
-  font-family: "LoCoS", var(--ui);
+  font-family: "CommonGround", var(--ui);
   font-size: clamp(36px, 5vw, 56px);
   line-height: 1.5;
   white-space: pre-wrap;
@@ -298,7 +298,7 @@ dialog::backdrop { background: rgb(0 0 0 / 0.4); }
   color: var(--muted);
 }
 
-.detail-glyph { font-family: "LoCoS"; font-size: 140px; line-height: 1.2; }
+.detail-glyph { font-family: "CommonGround"; font-size: 140px; line-height: 1.2; }
 .detail h2 { margin: 0 0 16px; }
 .detail-label { margin: 8px 0 4px; color: var(--muted); font-size: 13px; }
 .detail-typed { margin: 0 0 12px; }

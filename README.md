@@ -1,6 +1,6 @@
-# LoCoS Vocabulary
+# Common Ground
 
-A website for the **LoCoS Vocabulary** symbol font: a dictionary of every
+A website for the **CommonGround** symbol font: a dictionary of every
 symbol, and a keyboard that turns what you type into symbols as you write.
 The interface follows the visitor's browser language (Chrome: Settings →
 Languages), currently English, 中文, Español, Français and 日本語, and can be
@@ -25,7 +25,7 @@ Then visit http://localhost:8000. It works as-is on GitHub Pages.
 | `i18n.js` | interface text per language, and the browser-language pick |
 | `data/vocabulary.js` | what each symbol means in each language (edit this one by hand) |
 | `data/glyphs.js` | glyph names, codepoints and the English words that type them (generated) |
-| `fonts/` | `LoCoSVocabulary.ttf` / `.woff` (generated) |
+| `fonts/` | `CommonGround.ttf` / `.woff` (generated) |
 | `source/LoCoSVocabulary.glyphs` | the font source |
 | `tools/build_font.py` | builds the fonts and `data/glyphs.js` from the source |
 
@@ -47,7 +47,7 @@ out what the Glyphs exporter complains about.
 
 ## Adding a language
 
-1. Add a column to `data/vocabulary.js` and its code to `LOCOS_VOCAB_COLUMNS`.
+1. Add a column to `data/vocabulary.js` and its code to `VOCAB_COLUMNS`.
 2. Add the interface text to `LANGS` in `i18n.js`, keyed by the language code
    browsers report (`de`, `ko`, `pt`, …).
 
