@@ -68,15 +68,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
   padding: 28px 0 40px;
 }
 
-.lang { display: block; margin-bottom: 20px; }
-
-.lang select {
-  padding: 6px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--card);
-}
-
 .title {
   margin: 8px 0 16px;
   font-size: clamp(48px, 5.4vw, 76px);

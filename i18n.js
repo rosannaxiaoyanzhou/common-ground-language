@@ -1,6 +1,6 @@
 // Interface text in every language the site speaks. The page picks the first
 // of the browser's preferred languages (Chrome: Settings → Languages) that is
-// listed here, falls back to English, and lets the visitor switch by hand.
+// listed here, and falls back to English.
 window.LANGS = {
   en: {
     name: "English",
@@ -9,7 +9,6 @@ window.LANGS = {
     nav_keyboard: "Keyboard",
     nav_dictionary_desc: "Search and discover all {n} symbols.",
     nav_keyboard_desc: "Type in your own language and watch it turn into symbols.",
-    language: "Language",
     search: "Search a word…",
     filter_all: "All",
     filter_w: "Words",
@@ -44,7 +43,6 @@ window.LANGS = {
     nav_keyboard: "键盘",
     nav_dictionary_desc: "搜索并浏览全部 {n} 个符号。",
     nav_keyboard_desc: "用你自己的语言打字，看它变成符号。",
-    language: "语言",
     search: "搜索词语…",
     filter_all: "全部",
     filter_w: "词",
@@ -79,7 +77,6 @@ window.LANGS = {
     nav_keyboard: "Teclado",
     nav_dictionary_desc: "Busca y descubre los {n} símbolos.",
     nav_keyboard_desc: "Escribe en tu idioma y mira cómo se convierte en símbolos.",
-    language: "Idioma",
     search: "Busca una palabra…",
     filter_all: "Todo",
     filter_w: "Palabras",
@@ -114,7 +111,6 @@ window.LANGS = {
     nav_keyboard: "Clavier",
     nav_dictionary_desc: "Cherchez et découvrez les {n} symboles.",
     nav_keyboard_desc: "Écrivez dans votre langue et regardez-la devenir symboles.",
-    language: "Langue",
     search: "Chercher un mot…",
     filter_all: "Tout",
     filter_w: "Mots",
@@ -149,7 +145,6 @@ window.LANGS = {
     nav_keyboard: "キーボード",
     nav_dictionary_desc: "{n} 個の記号を検索して、見てみよう。",
     nav_keyboard_desc: "自分の言葉で打つと、記号に変わります。",
-    language: "言語",
     search: "言葉を検索…",
     filter_all: "すべて",
     filter_w: "単語",
@@ -179,12 +174,8 @@ window.LANGS = {
   },
 };
 
-// the visitor's own choice wins; otherwise the browser's language list, in order
+// the browser's language list, in order
 window.pickLanguage = function () {
-  try {
-    const saved = localStorage.getItem("lang");
-    if (saved && LANGS[saved]) return saved;
-  } catch (e) {}
   const wanted = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
   for (const tag of wanted) {
     const base = tag.toLowerCase().split("-")[0];

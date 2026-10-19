@@ -3,8 +3,8 @@
 A website for the **CommonGround** symbol font: a dictionary of every
 symbol, and a keyboard that turns what you type into symbols as you write.
 The interface follows the visitor's browser language (Chrome: Settings →
-Languages), currently English, 中文, Español, Français and 日本語, and can be
-switched by hand.
+Languages), currently English, 中文, Español, Français and 日本語, falling
+back to English for anything else.
 
 ## Run it
 

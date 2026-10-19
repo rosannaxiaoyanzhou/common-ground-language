@@ -32,7 +32,8 @@ const entries = GLYPHS
 
 // ---- language ----
 
-let lang = pickLanguage();
+// always the browser's language; there's no picker on the page
+const lang = pickLanguage();
 const t = key => (LANGS[lang] && LANGS[lang][key]) || LANGS.en[key] || "";
 const meaning = (entry, l = lang) => (entry.meanings[l] && entry.meanings[l][0]) || entry.meanings.en[0];
 
@@ -48,17 +49,6 @@ function applyLanguage() {
   renderPalette();
   renderOutput();
 }
-
-const langSelect = document.getElementById("lang");
-for (const [code, strings] of Object.entries(LANGS)) {
-  langSelect.add(new Option(strings.name, code));
-}
-langSelect.value = lang;
-langSelect.addEventListener("change", () => {
-  lang = langSelect.value;
-  try { localStorage.setItem("lang", lang); } catch (e) {}
-  applyLanguage();
-});
 
 // ---- views ----
 
